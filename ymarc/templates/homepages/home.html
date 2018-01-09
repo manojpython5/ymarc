@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+{% load staticfiles %}
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>ymarc</title>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="{% url 'ymarchome:index' %}">ymarc</a>
+        </div>
+     <div class="container">
+       <ul class="nav navbar-nav navbar-right">
+
+         {% if user.is_authenticated %}
+          <li><a class="navbar-brand">{{user}}</a></li>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+          {% else %}
+          <li class="nav-item"><a href="{% url 'register' %}">sign up</a></li>
+            <li><a class="navbar-link" href="{% url 'ymarchome:user_login' %}">Login</a></li>
+          {% endif %}
+       </ul>
+
+     </div>
+
+
+    </nav>
+<p></p><br>
+<p></p><br>
+    <div class="container">
+      <marquee><strong>Welcome to YMARC Organic products</strong></marquee>
+      <h2>YMARC range of products</h2>
+      <table class="table">
+        <tr text-align="center">
+          <td class="text-center"><a class="btn btn-success" href="{% url 'ymarchome:veg' %}">Vegetables</a></td>
+          <td class="text-center"><a class="btn btn-warning" href="{% url 'nonveg' %}">Non-vegetarian</a></td>
+          <td class="text-center"><a class="btn btn-large btn-info" href="{% url 'dairy' %}">Dairy Products</a></td>
+        </tr>
+      </table>
+
+
+      <p>At YMARC, we intend to sell pure organic products for you and your family health.
+         We provide home delivery to the residents of Pragathi Nagar.
+         we also give privilage to our customer to visit of green feilds and choose the products.</p>
+    </div>
+
+  </body>
+</html>

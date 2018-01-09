@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>ymarc</title>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+  .w3-sidebar a {font-family: "Roboto", sans-serif}
+  body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
+  </style>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="{% url 'ymarchome:index' %}">ymarc</a>
+        </div>
+     <div class="container">
+       <ul class="nav navbar-nav navbar-right">
+
+         {% if user.is_authenticated %}
+              <li><a class="navbar-brand">{{user}}</a></li>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+          {% else %}
+            <li class="nav-item"><a href="{% url 'register' %}">sign up</a></li>
+            <li><a class="navbar-link" href="{% url 'ymarchome:user_login' %}">Login</a></li>
+          {% endif %}
+
+         <li><i class="navbar-brand" class="fa fa-shopping-cart" aria-hidden="true" ></i></li>
+       </ul>
+     </div>
+
+    </nav>
+
+    <div class="container">
+      <p></p><br>
+      <p></p><br>
+      <div class="vertical-menu">
+
+<div class="w3-padding-64 w3-large w3-text-grey" style="font-weight:bold" width="20%">
+    <a class="btn btn-primay" href="{% url 'ymarchome:index' %}">Home</a>
+  <a class="btn btn-primay" href="{% url 'veg' %}">Veg</a>
+  <a class="btn btn-primay" href="{% url 'nonveg' %}">Non-veg</a>
+    <a class="btn btn-primay" href="{% url 'dairy' %}">Dairy</a>
+</div>
+  </div>
+
+    {% block body_block%}
+    {% endblock %}
+
+<p>A ymarc pvt ltd product</p>
+    </div>
+
+  </body>
+</html>
