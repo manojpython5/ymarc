@@ -1,14 +1,5 @@
 version: 0.0
 os: linux
 files:
-  - source: /index.html
+  - source: /ymarc
     destination: /var/www/html/
-hooks:
-  BeforeInstall:
-    - location: deploy/before_install
-      timeout: 300
-      runas: root
-  AfterInstall:
-    - location: deploy/restart_server
-      timeout: 300
-      runas: root
