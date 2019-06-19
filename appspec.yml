@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 files:
   - source: /ymarc
-    destination: /
+    destination: /ymarc
 hooks:
   BeforeInstall:
     - location: ymarc/before_install
