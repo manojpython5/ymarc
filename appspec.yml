@@ -2,4 +2,13 @@ version: 0.0
 os: linux
 files:
   - source: /ymarc
-    destination: /var/www/html/
+    destination: /
+hooks:
+  BeforeInstall:
+    - location: ymarc/before_install
+      timeout: 300
+      runas: root
+  AfterInstall:
+    - location: ymarc/restart_server
+      timeout: 300
+      runas: root
