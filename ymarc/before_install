@@ -1,3 +1,4 @@
 #!/bin/sh
 easy_install pip
 pip install django
+yum install MySQL-python -y
